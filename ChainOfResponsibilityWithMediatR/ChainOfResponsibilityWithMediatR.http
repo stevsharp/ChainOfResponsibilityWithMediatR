@@ -1,0 +1,6 @@
+@ChainOfResponsibilityWithMediatR_HostAddress = http://localhost:5208
+
+GET {{ChainOfResponsibilityWithMediatR_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

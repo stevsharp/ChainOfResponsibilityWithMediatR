@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Common\Behaviors\" />
+    <Folder Include="Common\Exceptions\" />
+    <Folder Include="DependencyInjection\" />
+    <Folder Include="Abstractions\" />
+    <Folder Include="Mapping\" />
+    <Folder Include="PurchaseOrders\Commands\" />
+    <Folder Include="PurchaseOrders\Queries\" />
+  </ItemGroup>
+
+</Project>
