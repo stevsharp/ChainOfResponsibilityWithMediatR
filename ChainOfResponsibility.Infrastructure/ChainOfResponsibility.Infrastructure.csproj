@@ -4,13 +4,25 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <UserSecretsId>0d558ac3-045c-4683-b0c6-f33379b3d620</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DependencyInjection\" />
-    <Folder Include="Persistence\Configurations\" />
     <Folder Include="Persistence\Migrations\" />
-    <Folder Include="Persistence\Repositories\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.11" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="6.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ChainOfResponsibility.Application\ChainOfResponsibility.Application.csproj" />
+    <ProjectReference Include="..\ChainOfResponsibility.Domain\ChainOfResponsibility.Domain.csproj" />
   </ItemGroup>
 
 </Project>

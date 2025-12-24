@@ -9,7 +9,6 @@
   <ItemGroup>
     <Folder Include="Approvals\" />
     <Folder Include="Specifications\" />
-    <Folder Include="PurchaseOrders\" />
   </ItemGroup>
 
 </Project>

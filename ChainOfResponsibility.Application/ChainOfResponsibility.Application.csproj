@@ -10,10 +10,13 @@
     <Folder Include="Common\Behaviors\" />
     <Folder Include="Common\Exceptions\" />
     <Folder Include="DependencyInjection\" />
-    <Folder Include="Abstractions\" />
     <Folder Include="Mapping\" />
     <Folder Include="PurchaseOrders\Commands\" />
     <Folder Include="PurchaseOrders\Queries\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ChainOfResponsibility.Domain\ChainOfResponsibility.Domain.csproj" />
   </ItemGroup>
 
 </Project>

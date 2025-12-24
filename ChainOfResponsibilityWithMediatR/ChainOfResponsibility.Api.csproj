@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
@@ -18,6 +18,10 @@
     <Folder Include="Middleware\" />
     <Folder Include="DependencyInjection\" />
     <Folder Include="Contracts\Responses\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ChainOfResponsibility.Infrastructure\ChainOfResponsibility.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
