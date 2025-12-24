@@ -9,9 +9,7 @@
   <ItemGroup>
     <Folder Include="Common\Behaviors\" />
     <Folder Include="Common\Exceptions\" />
-    <Folder Include="DependencyInjection\" />
     <Folder Include="Mapping\" />
-    <Folder Include="PurchaseOrders\Queries\" />
   </ItemGroup>
 
   <ItemGroup>

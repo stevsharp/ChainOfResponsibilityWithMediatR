@@ -1,4 +1,5 @@
 ﻿using ChainOfResponsibility.Application.Abstractions.Exceptions;
+using ChainOfResponsibility.Application.Abstractions.Messaging;
 using ChainOfResponsibility.Application.Abstractions.Persistence;
 using ChainOfResponsibility.Application.Abstractions.Time;
 using ChainOfResponsibility.Domain.Approvals;
@@ -8,7 +9,7 @@ using MediatR;
 namespace ChainOfResponsibility.Application.PurchaseOrders.Commands.ApprovePurchaseOrder;
 
 public sealed record ApprovePurchaseOrderCommand(Guid PurchaseOrderId)
-    : IRequest<ApprovalDecision>;
+    : ICommand<ApprovalDecision>;
 
 public sealed class ApprovePurchaseOrderHandler
     : IRequestHandler<ApprovePurchaseOrderCommand, ApprovalDecision>
