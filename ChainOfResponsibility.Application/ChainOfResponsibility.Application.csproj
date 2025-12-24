@@ -11,8 +11,11 @@
     <Folder Include="Common\Exceptions\" />
     <Folder Include="DependencyInjection\" />
     <Folder Include="Mapping\" />
-    <Folder Include="PurchaseOrders\Commands\" />
     <Folder Include="PurchaseOrders\Queries\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="14.0.0" />
   </ItemGroup>
 
   <ItemGroup>

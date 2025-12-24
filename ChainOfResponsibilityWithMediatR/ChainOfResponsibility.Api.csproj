@@ -13,11 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Contracts\Requests\" />
     <Folder Include="Endpoints\" />
     <Folder Include="Middleware\" />
     <Folder Include="DependencyInjection\" />
-    <Folder Include="Contracts\Responses\" />
   </ItemGroup>
 
   <ItemGroup>
