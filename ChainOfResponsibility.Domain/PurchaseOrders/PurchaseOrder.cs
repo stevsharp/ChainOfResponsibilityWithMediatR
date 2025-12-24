@@ -14,7 +14,7 @@ public sealed class PurchaseOrder
     /// <param name="price"></param>
     /// <param name="name"></param>
     /// <exception cref="ArgumentException"></exception>
-    public PurchaseOrder(Guid id, int amount, decimal price, string name)
+    public PurchaseOrder(Guid id, int amount, decimal price, string name, DateTime createdAtUtc)
     {
         ArgumentOutOfRangeException.ThrowIfNegativeOrZero(amount);
         ArgumentOutOfRangeException.ThrowIfNegativeOrZero(price);
@@ -26,7 +26,7 @@ public sealed class PurchaseOrder
         Amount = amount;
         Price = price;
         Name = name.Trim();
-
+        CreatedAtUtc = createdAtUtc;
         Status = PurchaseOrderStatus.Pending;
     }
     /// <summary>

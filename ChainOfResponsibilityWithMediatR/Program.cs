@@ -12,6 +12,7 @@ builder.Services.AddMediatR(cfg =>
 });
 
 builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddDomain(builder.Configuration);
 
 var app = builder.Build();
 
