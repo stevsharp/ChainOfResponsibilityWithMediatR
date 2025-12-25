@@ -194,16 +194,7 @@ That means schema was not created yet.
 * Ensure the connection string points to the same `app.db` you are checking
 * Delete old `app.db` files if you have multiple (common with relative paths)
 
-## Why this approach
-
-I like CQRS because it keeps each feature small and focused:
-
-* one request
-* one handler
-* easy to test
-
 ## Connect with Me
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue)](https://www.linkedin.com/in/spyros-ponaris-913a6937/)
-And I like Chain of Responsibility because approval workflows grow fast and become messy if you put them inside one big `if` block.
 
