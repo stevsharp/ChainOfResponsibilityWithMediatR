@@ -16,7 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Endpoints\" />
     <Folder Include="Middleware\" />
     <Folder Include="DependencyInjection\" />
   </ItemGroup>
