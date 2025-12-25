@@ -1,7 +1,7 @@
 ````md
 # ChainOfResponsibilityWithMediatR
 
-Small demo project that shows how to use **Chain of Responsibility** and **Specification** inside a **CQRS** flow with **MediatR**, using **Carter** endpoints and **SQLite**.
+Small demo project that shows how to use Chain of Responsibility and Specification inside a CQRS flow with MediatR, using Carter endpoints and SQLite.
 
 My goal was to keep it practical and easy to follow, not “too enterprise”, but still clean.
 
