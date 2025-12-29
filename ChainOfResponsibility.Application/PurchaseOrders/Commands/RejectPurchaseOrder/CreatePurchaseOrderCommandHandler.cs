@@ -1,5 +1,5 @@
 ﻿using ChainOfResponsibility.Application.Abstractions.Exceptions;
-using ChainOfResponsibility.Application.Abstractions.Persistence;
+using ChainOfResponsibility.Application.Abstractions.Persistence.Repositories;
 using ChainOfResponsibility.Application.Abstractions.Time;
 
 using MediatR;
@@ -8,7 +8,8 @@ namespace ChainOfResponsibility.Application.PurchaseOrders.Commands.RejectPurcha
 /// <summary>
 /// 
 /// </summary>
-public sealed class CreatePurchaseOrderCommand(IPurchaseOrderRepository repo, IClock clock) : IRequestHandler<RejectPurchaseOrderCommand>
+public sealed class CreatePurchaseOrderCommandHandler(IPurchaseOrderRepository repo, IClock clock) 
+    : IRequestHandler<RejectPurchaseOrderCommand>
 {
     /// <summary>
     /// 
@@ -30,7 +31,5 @@ public sealed class CreatePurchaseOrderCommand(IPurchaseOrderRepository repo, IC
         var po = await _repo.GetAsync(request.PurchaseOrderId, ct) ?? throw new NotFoundException($"PurchaseOrder '{request.PurchaseOrderId}' not found.");
 
         po.MarkRejected(request.Reason, _clock.UtcNow);
-
-        await _repo.SaveChangesAsync(ct);
     }
 }

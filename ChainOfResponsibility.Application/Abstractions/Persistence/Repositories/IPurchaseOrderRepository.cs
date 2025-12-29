@@ -1,6 +1,6 @@
 ﻿using ChainOfResponsibility.Domain.PurchaseOrders;
 
-namespace ChainOfResponsibility.Application.Abstractions.Persistence;
+namespace ChainOfResponsibility.Application.Abstractions.Persistence.Repositories;
 
 public interface IPurchaseOrderRepository
 {
@@ -9,6 +9,4 @@ public interface IPurchaseOrderRepository
     Task<(IReadOnlyList<PurchaseOrder> items, int total)> ListAsync(int page, int pageSize ,CancellationToken ct);
 
     void Add(PurchaseOrder po);
-
-    Task SaveChangesAsync(CancellationToken ct);
 }

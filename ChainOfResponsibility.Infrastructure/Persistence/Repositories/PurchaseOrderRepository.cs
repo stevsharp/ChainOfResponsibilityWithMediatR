@@ -1,4 +1,4 @@
-﻿using ChainOfResponsibility.Application.Abstractions.Persistence;
+﻿using ChainOfResponsibility.Application.Abstractions.Persistence.Repositories;
 using ChainOfResponsibility.Domain.PurchaseOrders;
 
 using Microsoft.EntityFrameworkCore;
@@ -24,13 +24,6 @@ public sealed class PurchaseOrderRepository(AppDbContext db) : IPurchaseOrderRep
     /// </summary>
     /// <param name="po"></param>
     public void Add(PurchaseOrder po) => db.PurchaseOrders.Add(po);
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="ct"></param>
-    /// <returns></returns>
-    public Task SaveChangesAsync(CancellationToken ct)
-        => db.SaveChangesAsync(ct);
     /// <summary>
     /// 
     /// </summary>

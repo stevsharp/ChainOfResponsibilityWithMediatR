@@ -1,5 +1,5 @@
 ﻿using ChainOfResponsibility.Application.Abstractions.Exceptions;
-using ChainOfResponsibility.Application.Abstractions.Persistence;
+using ChainOfResponsibility.Application.Abstractions.Persistence.Repositories;
 using ChainOfResponsibility.Application.Abstractions.Time;
 using ChainOfResponsibility.Domain.Approvals;
 
@@ -16,16 +16,12 @@ public sealed class ApprovePurchaseOrderHandler(IPurchaseOrderRepository repo, A
 
     public async Task<ApprovalDecision> Handle(ApprovePurchaseOrderCommand request, CancellationToken ct)
     {
-        var po = await _repo.GetAsync(request.PurchaseOrderId, ct);
-
-        if (po is null)
+        var po = await _repo.GetAsync(request.PurchaseOrderId, ct) ?? 
             throw new NotFoundException($"PurchaseOrder '{request.PurchaseOrderId}' not found.");
 
         var decision = await _chain.ApproveAsync(po, ct);
 
         po.MarkApproved(decision.ApprovedBy, _clock.UtcNow);
-
-        await _repo.SaveChangesAsync(ct);
 
         return decision;
     }

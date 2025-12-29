@@ -1,6 +1,7 @@
 ﻿
 
 using ChainOfResponsibility.Application.Abstractions.Messaging;
+using ChainOfResponsibility.Application.Abstractions.Persistence.UnitOfWork;
 
 using MediatR;
 
@@ -8,12 +9,25 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ChainOfResponsibility.Application.Common.Behaviors;
 
-public sealed class TransactionBehavior<TRequest, TResponse>(DbContext db)
+public sealed class TransactionBehavior<TRequest, TResponse>(DbContext db, IUnitOfWork uow)
     : IPipelineBehavior<TRequest, TResponse>
     where TRequest : notnull
 {
+    /// <summary>
+    /// 
+    /// </summary>
     private readonly DbContext _db = db;
-
+    /// <summary>
+    /// 
+    /// </summary>
+    private readonly IUnitOfWork _uow = uow;
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="request"></param>
+    /// <param name="next"></param>
+    /// <param name="ct"></param>
+    /// <returns></returns>
     public async Task<TResponse> Handle(
         TRequest request,
         RequestHandlerDelegate<TResponse> next,
@@ -32,12 +46,17 @@ public sealed class TransactionBehavior<TRequest, TResponse>(DbContext db)
         try
         {
             var response = await next(ct);
+
+            await _uow.SaveChangesAsync(ct);
+
             await tx.CommitAsync(ct);
+
             return response;
         }
         catch
         {
             await tx.RollbackAsync(ct);
+
             throw;
         }
     }

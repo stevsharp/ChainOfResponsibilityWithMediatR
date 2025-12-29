@@ -1,4 +1,4 @@
-﻿using ChainOfResponsibility.Application.Abstractions.Persistence;
+﻿using ChainOfResponsibility.Application.Abstractions.Persistence.Repositories;
 using ChainOfResponsibility.Domain.PurchaseOrders;
 
 using MediatR;

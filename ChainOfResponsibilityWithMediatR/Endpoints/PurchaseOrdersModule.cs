@@ -45,6 +45,7 @@ public sealed class PurchaseOrdersModule : CarterModule
         {
 
             var pe = page.GetValueOrDefault(1);
+
             var pg = pageSize.GetValueOrDefault(20);
 
             var result = await mediator.Send(new ListPurchaseOrdersQuery(pe,pg), ct);

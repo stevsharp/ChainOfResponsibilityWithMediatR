@@ -1,4 +1,4 @@
-﻿using ChainOfResponsibility.Application.Abstractions.Persistence;
+﻿using ChainOfResponsibility.Application.Abstractions.Persistence.Repositories;
 using ChainOfResponsibility.Application.Abstractions.Time;
 using ChainOfResponsibility.Domain.PurchaseOrders;
 
@@ -12,7 +12,7 @@ public sealed class CreatePurchaseOrderHandler(IPurchaseOrderRepository repo, IC
     private readonly IPurchaseOrderRepository _repo = repo;
     private readonly IClock _clock = clock;
 
-    public async Task<Guid> Handle(CreatePurchaseOrderCommand request, CancellationToken ct)
+    public Task<Guid> Handle(CreatePurchaseOrderCommand request, CancellationToken ct)
     {
         var id = Guid.NewGuid();
 
@@ -26,8 +26,6 @@ public sealed class CreatePurchaseOrderHandler(IPurchaseOrderRepository repo, IC
 
         _repo.Add(po);
 
-        await _repo.SaveChangesAsync(ct);
-
-        return id;
+        return Task.FromResult(id);
     }
 }
