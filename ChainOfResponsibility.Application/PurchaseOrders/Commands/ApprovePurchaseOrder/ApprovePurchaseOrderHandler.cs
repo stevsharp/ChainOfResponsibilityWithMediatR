@@ -7,19 +7,12 @@ using MediatR;
 
 namespace ChainOfResponsibility.Application.PurchaseOrders.Commands.ApprovePurchaseOrder;
 
-public sealed class ApprovePurchaseOrderHandler
-    : IRequestHandler<ApprovePurchaseOrderCommand, ApprovalDecision>
+public sealed class ApprovePurchaseOrderHandler(IPurchaseOrderRepository repo, ApprovalChain chain, IClock clock)
+        : IRequestHandler<ApprovePurchaseOrderCommand, ApprovalDecision>
 {
-    private readonly IPurchaseOrderRepository _repo;
-    private readonly ApprovalChain _chain;
-    private readonly IClock _clock;
-
-    public ApprovePurchaseOrderHandler(IPurchaseOrderRepository repo, ApprovalChain chain, IClock clock)
-    {
-        _repo = repo;
-        _chain = chain;
-        _clock = clock;
-    }
+    private readonly IPurchaseOrderRepository _repo = repo;
+    private readonly ApprovalChain _chain = chain;
+    private readonly IClock _clock = clock;
 
     public async Task<ApprovalDecision> Handle(ApprovePurchaseOrderCommand request, CancellationToken ct)
     {
