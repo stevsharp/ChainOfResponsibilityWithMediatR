@@ -1,5 +1,7 @@
 Sharing my latest write-up on Coderlegion, check it out! 
 
+https://coderlegion.com/8906/chain-of-responsibility-inside-cqrs-with-mediatr-a-small-practical-example
+
 https://coderlegion.com/9090/how-i-built-a-cqrs-approval-flow-with-mediatr-carter-fluentvalidation-and-sqlite
 
 https://coderlegion.com/9342/carter-in-a-cqrs-api-advantages-and-alternatives
