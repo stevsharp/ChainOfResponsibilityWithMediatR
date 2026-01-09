@@ -1,3 +1,5 @@
+Sharing my latest write-up on Coderlegion, check it out! https://coderlegion.com/9342/carter-in-a-cqrs-api-advantages-and-alternatives
+
 ````md
 # ChainOfResponsibilityWithMediatR
 
